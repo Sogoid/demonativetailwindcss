@@ -1,31 +1,22 @@
+import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
+import HomeStackNavigator from './src/router/Router';
 import './src/styles/global.css';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-  View,
-} from 'react-native';
-import Router from './src/router/Router';
-
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = isDarkMode ? 'bg-black' : 'bg-white';
-
+export default function App() {
   return (
-    <SafeAreaView className={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        className={backgroundStyle}>
-        <View className="bg-white dark:bg-black">
-          <Router />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    // <SafeAreaView className={backgroundStyle}>
+    //   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    //   <ScrollView
+    //     contentInsetAdjustmentBehavior="automatic"
+    //     className={backgroundStyle}>
+    //     <View className="bg-white dark:bg-black">
+    //       <Router />
+    //     </View>
+    //   </ScrollView>
+    // </SafeAreaView>
+    <NavigationContainer>
+      <HomeStackNavigator />
+    </NavigationContainer>
   );
-};
-
-export default App;
+}
